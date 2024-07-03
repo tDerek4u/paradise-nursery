@@ -5,22 +5,31 @@ import { addProductToCart } from "../features/cartSlice";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setloading] = useState(false);
   const dispatch = useDispatch();
 
   const fetchProducts = async () => {
     try {
+      setloading(true);
       const url = await fetch("https://fakestoreapi.com/products");
       const response = await url.json();
       setProducts(response);
-      console.log(response);
+      setloading(false);
     } catch (error) {
       console.log("Error: ", error);
+      setloading(false);
     }
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  if(loading) {
+    return <Container>
+      <h2 className="text-red-950 text-center">Loading Products...</h2>
+    </Container>
+  }
 
   return (
     <Container>

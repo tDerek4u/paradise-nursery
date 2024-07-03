@@ -9,6 +9,11 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addProductToCart: (state, action) => {
+      const isAdded = state.cart.find(item => item.id === action.payload.id)
+      if(isAdded) {
+        alert("Product already added");
+        return;
+      };
       state.cart.push(action.payload);
     },
     removeProductFromCart: (state, action) => {
