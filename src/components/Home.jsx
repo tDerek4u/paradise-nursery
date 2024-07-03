@@ -21,6 +21,14 @@ const Home = () => {
     }
   };
 
+  const addProduct = (product) => {
+    const newProduct = {
+      ...product,
+      quantity: 1
+    }
+    dispatch(addProductToCart(newProduct));
+  }
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -61,7 +69,7 @@ const Home = () => {
                 </h3>
 
                 <button
-                  onClick={() => dispatch(addProductToCart(product))}
+                  onClick={() => addProduct(product)}
                   className="border-2 border-black rounded-md px-3 py-2 hover:bg-black hover:text-white"
                 >
                   Add To Card
