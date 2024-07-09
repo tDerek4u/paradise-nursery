@@ -1,18 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "./Container";
-import { decProduct, incProduct, removeProductFromCart } from "../features/cartSlice";
+import {
+  decProduct,
+  incProduct,
+  removeProductFromCart,
+} from "../features/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
-  console.log(cartItems)
+  console.log(cartItems);
 
   const totalPrice = cartItems.reduce((total, item) => {
-    return total + (item.price * item.quantity);
-  }, 0)
+    return total + item.price * item.quantity;
+  }, 0);
 
-  const btnStyle = "font-bold w-5 h-5 bg-black text-white flex items-center justify-center cursor-pointer hover:bg-red-950"; 
+  const btnStyle =
+    "font-bold w-5 h-5 bg-black text-white flex items-center justify-center cursor-pointer hover:bg-red-950";
 
   return (
     <Container>
@@ -22,25 +27,41 @@ const Cart = () => {
         <div className="cart-items space-y-5 mb-10">
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
-              <div className="cart-item border border-black px-2 py-2 flex flex-col sm:flex-row items-center gap-5" key={item.id}>
-                 <div className="w-10 h-10">
+              <div
+                className="cart-item border border-black px-2 py-2 flex flex-col sm:flex-row items-center gap-5"
+                key={item.id}
+              >
+                <div className="w-10 h-10">
                   <img
                     src={item.image}
-                    salt={item.name}
+                    alt={item.name}
                     className="w-full h-full"
                   />
-                 </div>
+                </div>
                 <h3 className="font-semibold">{item.title}</h3>
 
-                <h5 className="font-black">{item.price} - ({item.quantity})</h5>
-                
+                <h5 className="font-black">
+                  {item.price} - ({item.quantity})
+                </h5>
+
                 <div className="flex gap-2">
-                <button className={btnStyle} onClick={() => dispatch(incProduct(item.id))}>+</button>
-                <button className={btnStyle} onClick={() => dispatch(decProduct(item.id))}>-</button>
-              </div>
-              <button className={`${btnStyle} sm:ml-auto`}
-                 onClick={() => dispatch(removeProductFromCart(item.id))}
-                 >
+                  <button
+                    className={btnStyle}
+                    onClick={() => dispatch(incProduct(item.id))}
+                  >
+                    +
+                  </button>
+                  <button
+                    className={btnStyle}
+                    onClick={() => dispatch(decProduct(item.id))}
+                  >
+                    -
+                  </button>
+                </div>
+                <button
+                  className={`${btnStyle} sm:ml-auto`}
+                  onClick={() => dispatch(removeProductFromCart(item.id))}
+                >
                   X
                 </button>
               </div>
@@ -49,10 +70,9 @@ const Cart = () => {
             <h2 className="text-center">No Items In Cart</h2>
           )}
         </div>
-        <div className="border border-black p-5 inline">
+        <div className="border border-black p-5 inline-block">
           Total: {totalPrice.toFixed(2)}
         </div>
-       
       </div>
     </Container>
   );
