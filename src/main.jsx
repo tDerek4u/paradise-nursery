@@ -14,11 +14,15 @@ import { Provider } from "react-redux";
 import store from "./store.jsx";
 import ProductByCategory from "./components/ProductByCategory.jsx";
 import ProductItem from "./components/ProductItem.jsx";
+import GetStarted from "./components/GetStarted.jsx";
+import About from "./components/AboutUs.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route index element={<GetStarted />} />
       <Route path="/products" element={<AllProducts />} />
       <Route path="/products/:cat" element={<ProductByCategory />} />
       <Route path="/product/:id" element={<ProductItem />} />

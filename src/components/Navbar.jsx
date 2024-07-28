@@ -6,13 +6,23 @@ const Navbar = () => {
   const cart = useSelector((state) => state.cart);
   return (
     <nav>
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 py-3">
         <li>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-bold" : "font-normal"
+              isActive ? "font-bold text-white" : "font-normal"
             }
             to={"/"}
+          >
+            Get Started
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "font-bold  text-white" : "font-normal"
+            }
+            to={"/home"}
           >
             Home
           </NavLink>
@@ -20,7 +30,18 @@ const Navbar = () => {
         <li>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-bold" : "font-normal"
+              isActive ? "font-bold  text-white" : "font-normal"
+            }
+            to={"/about"}
+          >
+            About
+          </NavLink>
+        </li>
+        
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "font-bold text-white" : "font-normal"
             }
             to={"/products"}
           >
@@ -30,7 +51,7 @@ const Navbar = () => {
         <li>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-bold" : "font-normal"
+              isActive ? "font-bold text-white" : "font-normal"
             }
             to={"/cart"}
           >
