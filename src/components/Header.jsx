@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 const Header = () => {
   return (
     <header className="flex justify-between py-3 px-5 bg-cyan-700">
-        <Link to={"/"} className="font-bold text-2xl text-white">E-SHOP </Link>
+        <Link to={"/"} className="font-bold text-2xl text-white">Paradise Nursery </Link>
         <Navbar />
     </header>
   )
