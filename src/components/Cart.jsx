@@ -6,11 +6,17 @@ import {
   incProduct,
   removeItem,
 } from "../CartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
   console.log(cartItems);
+
+  const checkOut = () => {
+    alert("Coming Soon!");
+   
+  }
 
   const totalPrice = cartItems.reduce((total, item) => {
     return total + item.price * item.quantity;
@@ -70,8 +76,14 @@ const Cart = () => {
             <h2 className="text-center">No Items In Cart</h2>
           )}
         </div>
+        <Link to="/products" className="border border-black text-white p-5 inline-block me-2 bg-blue-500">
+          Continue Shopping
+        </Link>
         <div className="border border-black p-5 inline-block">
           Total: {totalPrice.toFixed(2)}
+        </div>
+        <div className="border border-black p-5 inline-block ms-2" onClick={checkOut}>
+          Checkout
         </div>
       </div>
     </Container>
