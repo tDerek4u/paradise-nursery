@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addProductToCart } from "../features/cartSlice";
+import { addItem } from "../CartSlice";
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
@@ -12,7 +12,7 @@ const ProductCard = (props) => {
       ...product,
       quantity: 1,
     };
-    dispatch(addProductToCart(newProduct));
+    dispatch(addItem(newProduct));
   };
 
   return (

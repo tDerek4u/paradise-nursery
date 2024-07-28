@@ -10,7 +10,7 @@ const Categories = () => {
       setloading(true);
       const url = await fetch("https://fakestoreapi.com/products/categories");
       // const response = await url.json();
-      const response = ['AppleTrees', 'LemonTrees', 'LimeTrees', 'OrangeTrees'];
+      const response = ['Moderate Light Plants', 'High Light Plants', 'Low Light Plants', 'Bright Light Plants'];
       setCategory(response);
       setloading(false);
     } catch (error) {

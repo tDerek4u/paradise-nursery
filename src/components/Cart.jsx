@@ -4,8 +4,8 @@ import Container from "./Container";
 import {
   decProduct,
   incProduct,
-  removeProductFromCart,
-} from "../features/cartSlice";
+  removeItem,
+} from "../CartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const Cart = () => {
                 </div>
                 <button
                   className={`${btnStyle} sm:ml-auto`}
-                  onClick={() => dispatch(removeProductFromCart(item.id))}
+                  onClick={() => dispatch(removeItem(item.id))}
                 >
                   X
                 </button>

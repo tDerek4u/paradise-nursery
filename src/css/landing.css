@@ -1,0 +1,7 @@
+.bg-image {
+    background-image: url('https://i0.wp.com/paradisenursery.com/wp-content/uploads/2015/09/Nursery-entrance.jpg?resize=1024%2C576&ssl=1');
+    background-size: cover;
+    background-position: top;
+    height: 100vh; /* Ensures it takes full viewport height */
+    position: relative;
+}
